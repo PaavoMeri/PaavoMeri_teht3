@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Labran Hallintasivusto</h1>
+
+    {% for kategoria in kategoriat %}
+        <div class="my-4 p-3 bg-light rounded shadow">
+            <h2 class="border-bottom pb-2 mb-3">{{ kategoria.name }}</h2>
+            <ul>
+                {% for kohde in kategoria.kohde_set.all %}
+                <li class="mb-2">
+                    {{ kohde.name }}
+                    {% if kohde.link %}
+                        - <a href="{{ kohde.link }}" target="_blank" rel="noopener noreferrer">Linkki</a>
+                    {% endif %}
+                    {% if kohde.ip_address %}
+                        <span class="text-muted">({{ kohde.ip_address }})</span>
+                    {% endif %}
+                    {% if kohde.credentials %}
+                        <span class="badge bg-info text-light ml-2">{{ kohde.credentials }}</span>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+
