@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-k4rcqu^au&nwjw9-6vu%mhn2g*!77od-ytm)^p@lxjm92y4k@#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'Tehtävä_3.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/paavo/tehtävä3/Tehtävä_3/templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'Tehtävä_3/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
